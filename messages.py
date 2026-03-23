@@ -12,6 +12,10 @@ MSG_PHONE_ERROR = "Помилка: номер телефону повинен б
 
 MSG_FINISH = "=== Реєстрацію завершено ==="
 
+MSG_WELCOME_MISTER = "Welcome, Mr. {fullname}!"
+MSG_INPUT_BREAD_QUANTITY = "Введіть кількість хлібу (цілим числом, батонів) для купівлі: "
+MSG_CORRECT_INPUT = "Дані введено коректно )"
+MSG_INCORRECT_INPUT = "Are you nuts? Read input message"
 
 
 
