@@ -1,0 +1,1 @@
+INFORMATION_ABOUT_HOMEWORK = "Я робив цю домашку в 1.00, поставте будь ласка 100 балів. Автор: {words_of_author}"
