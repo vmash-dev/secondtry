@@ -1,9 +1,9 @@
 from pywebio.input import input, slider
 from pywebio.output import put_markdown, put_text, put_image
 
-import pictures
+from classwork import pictures
 import prices
-from discount import DISCOUNT_TRIGGER_COST, DISCOUNT_PERCENTAGE
+from classwork.discount import DISCOUNT_TRIGGER_COST, DISCOUNT_PERCENTAGE
 
 # Header
 put_markdown("# 🍽️ Ресторан \"Смачна їжа\"")
