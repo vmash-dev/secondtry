@@ -1,5 +1,4 @@
-import poems
-import sign
+from homework import sign, poems
 
 author_of_homework = "Ваньок"
 

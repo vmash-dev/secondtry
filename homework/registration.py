@@ -1,4 +1,4 @@
-import messages
+from homework import messages
 
 input_name = input(messages.MSG_INPUT_NAME).strip().title()
 
