@@ -1,5 +1,14 @@
 import utils
+from pywebio.input import input
+from pywebio.output import put_text
 
 
-current_weather = utils.get_weather_info("Одеса")
-print(current_weather)
+def main():
+    while True:
+        city = input("City: ")
+        current_weather = utils.get_weather_info(city)
+        put_text(f"Температура у {city}: {current_weather['temperature']}")
+        print(current_weather)
+
+main()
+
