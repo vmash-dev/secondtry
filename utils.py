@@ -24,6 +24,11 @@ def get_weather_info(city: str) -> dict:
         "wind_speed": wind_speed,
     }
 
+def write_logs():
+    with open(constants.LOG_CSV_FILE_NAME, mode="a", encoding="utf-8") as file:
+        data =
+
+
 
 
 
