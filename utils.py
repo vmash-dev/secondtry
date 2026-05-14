@@ -7,6 +7,7 @@ from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import jinja2
 
 
 import requests
@@ -42,9 +43,6 @@ def get_weather_info(city: str) -> dict:
     }
     write_logs('get_weather_info', {"city": city}, result)
     return result
-
-
-
 
 
 def send_email(
@@ -88,3 +86,12 @@ def send_email(
     mail.login(USER, TOKEN)
     mail.sendmail(USER, recipients, msg.as_string())
     mail.quit()
+
+
+def create_weather_report(data: dict) -> str:
+    template_loader = jinja2.FileSystemLoader(searchpath="./")
+    template_env = jinja2.Environment(loader=template_loader)
+    template_file = "templates/weather.html"
+    template = template_env.get_template(template_file)
+    output = template.render(data)
+    return output

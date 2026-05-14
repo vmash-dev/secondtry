@@ -4,9 +4,9 @@ from pywebio.output import put_text, put_success
 from pywebio import start_server
 from pywebio.session import run_js
 
+
 # chi23@ukr.net
 def main():
-
     data = input_group(
         "Запит на поточну погоду chi23@ukr.net test_hillel_api_mailing@ukr.net",
         [
@@ -17,14 +17,15 @@ def main():
         ]
     )
     current_weather = utils.get_weather_info(data["city"])
+    email_body = utils.create_weather_report(current_weather)
 
-    recipients = [  data["email"]   ]
+    recipients = [data["email"]]
     if data["friend_email"]:
         recipients.append(data["friend_email"])
 
     utils.send_email(
-    recipients,
-        f'<strong>mail</strong> body {current_weather}',
+        recipients,
+        email_body,
         mail_subject=f'Weather in {data["city"]}',
         # attachment='log.csv'
     )
@@ -45,4 +46,3 @@ start_server(
     port=8888,
     debug=True,
 )
-
