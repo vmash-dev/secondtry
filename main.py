@@ -8,7 +8,7 @@ from pywebio.session import run_js
 def main():
 
     data = input_group(
-        "Запит на поточну погоду",
+        "Запит на поточну погоду chi23@ukr.net test_hillel_api_mailing@ukr.net",
         [
             input("City", name="city", required=True),
             input("Email", name="email", required=True),
@@ -16,9 +16,18 @@ def main():
             input("Name", name="name", required=True),
         ]
     )
-    print(data)
+    current_weather = utils.get_weather_info(data["city"])
 
-    utils.send_email(["chi23@ukr.net", "test_hillel_api_mailing@ukr.net"], '<strong>mail</strong> body', mail_subject='subject')
+    recipients = [  data["email"]   ]
+    if data["friend_email"]:
+        recipients.append(data["friend_email"])
+
+    utils.send_email(
+    recipients,
+        f'<strong>mail</strong> body {current_weather}',
+        mail_subject=f'Weather in {data["city"]}',
+        # attachment='log.csv'
+    )
 
     put_success("The page reloads in 5 seconds...")
 
@@ -27,7 +36,6 @@ def main():
             window.location.reload();
         }, 5000);
     """)
-    # current_weather = utils.get_weather_info(city)
     # put_text(f"Температура у {city}: {current_weather['temperature']}")
 
 
