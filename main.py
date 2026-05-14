@@ -5,7 +5,6 @@ from pywebio import start_server
 from pywebio.session import run_js
 
 
-# chi23@ukr.net
 def main():
     data = input_group(
         "Запит на поточну погоду chi23@ukr.net test_hillel_api_mailing@ukr.net",
@@ -30,14 +29,13 @@ def main():
         # attachment='log.csv'
     )
 
-    put_success("The page reloads in 5 seconds...")
+    put_success("Email was sent. The page reloads in 5 seconds...")
 
     run_js("""
         setTimeout(() => {
             window.location.reload();
         }, 5000);
     """)
-    # put_text(f"Температура у {city}: {current_weather['temperature']}")
 
 
 start_server(
